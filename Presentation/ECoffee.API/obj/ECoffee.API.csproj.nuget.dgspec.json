@@ -32,7 +32,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\GithubRepom\\Projeler\\E-Coffee\\Core\\ECoffee.Domain\\ECoffee.Domain.csproj": {
+                "projectPath": "D:\\GithubRepom\\Projeler\\E-Coffee\\Core\\ECoffee.Domain\\ECoffee.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

@@ -14,5 +14,7 @@ namespace ECoffee.Persistence.Contexts
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
+
+
     }
 }
