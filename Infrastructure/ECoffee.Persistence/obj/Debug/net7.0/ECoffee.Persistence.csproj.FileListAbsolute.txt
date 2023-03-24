@@ -1,0 +1,17 @@
+D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\bin\Debug\net7.0\ECoffee.Persistence.deps.json
+D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\bin\Debug\net7.0\ECoffee.Persistence.runtimeconfig.json
+D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\bin\Debug\net7.0\ECoffee.Persistence.dll
+D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\bin\Debug\net7.0\ECoffee.Persistence.pdb
+D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\bin\Debug\net7.0\ECoffee.Domain.dll
+D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\bin\Debug\net7.0\ECoffee.Domain.pdb
+D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\obj\Debug\net7.0\ECoffee.Persistence.csproj.AssemblyReference.cache
+D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\obj\Debug\net7.0\ECoffee.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\obj\Debug\net7.0\ECoffee.Persistence.AssemblyInfoInputs.cache
+D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\obj\Debug\net7.0\ECoffee.Persistence.AssemblyInfo.cs
+D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\obj\Debug\net7.0\ECoffee.Persistence.csproj.CoreCompileInputs.cache
+D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\obj\Debug\net7.0\ECoffee.Persistence.csproj.CopyComplete
+D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\obj\Debug\net7.0\ECoffee.Persistence.dll
+D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\obj\Debug\net7.0\refint\ECoffee.Persistence.dll
+D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\obj\Debug\net7.0\ECoffee.Persistence.pdb
+D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\obj\Debug\net7.0\ECoffee.Persistence.genruntimeconfig.cache
+D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\obj\Debug\net7.0\ref\ECoffee.Persistence.dll
