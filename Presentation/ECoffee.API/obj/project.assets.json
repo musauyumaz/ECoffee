@@ -1353,7 +1353,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "ECoffee.Domain": "1.0.0"
+          "ECoffee.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "7.0.4"
         },
         "compile": {
           "bin/placeholder/ECoffee.Application.dll": {}
@@ -1386,6 +1387,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
+          "ECoffee.Application": "1.0.0",
           "ECoffee.Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.4",
           "Microsoft.Extensions.Configuration": "7.0.0",
@@ -4230,23 +4232,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\musau\\.nuget\\packages\\": {},
+    "C:\\Users\\mains\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GithubRepom\\Projeler\\E-Coffee\\Presentation\\ECoffee.API\\ECoffee.API.csproj",
+      "projectUniqueName": "C:\\Users\\mains\\OneDrive\\Belgeler\\github\\ECoffee\\Presentation\\ECoffee.API\\ECoffee.API.csproj",
       "projectName": "ECoffee.API",
-      "projectPath": "D:\\GithubRepom\\Projeler\\E-Coffee\\Presentation\\ECoffee.API\\ECoffee.API.csproj",
-      "packagesPath": "C:\\Users\\musau\\.nuget\\packages\\",
-      "outputPath": "D:\\GithubRepom\\Projeler\\E-Coffee\\Presentation\\ECoffee.API\\obj\\",
+      "projectPath": "C:\\Users\\mains\\OneDrive\\Belgeler\\github\\ECoffee\\Presentation\\ECoffee.API\\ECoffee.API.csproj",
+      "packagesPath": "C:\\Users\\mains\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mains\\OneDrive\\Belgeler\\github\\ECoffee\\Presentation\\ECoffee.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\musau\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mains\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4255,21 +4257,20 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\GithubRepom\\Projeler\\E-Coffee\\Core\\ECoffee.Application\\ECoffee.Application.csproj": {
-              "projectPath": "D:\\GithubRepom\\Projeler\\E-Coffee\\Core\\ECoffee.Application\\ECoffee.Application.csproj"
+            "C:\\Users\\mains\\OneDrive\\Belgeler\\github\\ECoffee\\Core\\ECoffee.Application\\ECoffee.Application.csproj": {
+              "projectPath": "C:\\Users\\mains\\OneDrive\\Belgeler\\github\\ECoffee\\Core\\ECoffee.Application\\ECoffee.Application.csproj"
             },
-            "D:\\GithubRepom\\Projeler\\E-Coffee\\Infrastructure\\ECoffee.Infrastructure\\ECoffee.Infrastructure.csproj": {
-              "projectPath": "D:\\GithubRepom\\Projeler\\E-Coffee\\Infrastructure\\ECoffee.Infrastructure\\ECoffee.Infrastructure.csproj"
+            "C:\\Users\\mains\\OneDrive\\Belgeler\\github\\ECoffee\\Infrastructure\\ECoffee.Infrastructure\\ECoffee.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\mains\\OneDrive\\Belgeler\\github\\ECoffee\\Infrastructure\\ECoffee.Infrastructure\\ECoffee.Infrastructure.csproj"
             },
-            "D:\\GithubRepom\\Projeler\\E-Coffee\\Infrastructure\\ECoffee.Persistence\\ECoffee.Persistence.csproj": {
-              "projectPath": "D:\\GithubRepom\\Projeler\\E-Coffee\\Infrastructure\\ECoffee.Persistence\\ECoffee.Persistence.csproj"
+            "C:\\Users\\mains\\OneDrive\\Belgeler\\github\\ECoffee\\Infrastructure\\ECoffee.Persistence\\ECoffee.Persistence.csproj": {
+              "projectPath": "C:\\Users\\mains\\OneDrive\\Belgeler\\github\\ECoffee\\Infrastructure\\ECoffee.Persistence\\ECoffee.Persistence.csproj"
             }
           }
         }
@@ -4318,7 +4319,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
