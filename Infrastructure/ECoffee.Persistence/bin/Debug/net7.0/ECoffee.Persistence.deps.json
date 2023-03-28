@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v7.0": {
       "ECoffee.Persistence/1.0.0": {
         "dependencies": {
+          "ECoffee.Application": "1.0.0",
           "ECoffee.Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.4",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.4",
@@ -746,6 +747,15 @@
           }
         }
       },
+      "ECoffee.Application/1.0.0": {
+        "dependencies": {
+          "ECoffee.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "7.0.4"
+        },
+        "runtime": {
+          "ECoffee.Application.dll": {}
+        }
+      },
       "ECoffee.Domain/1.0.0": {
         "runtime": {
           "ECoffee.Domain.dll": {}
@@ -1269,6 +1279,11 @@
       "sha512": "sha512-c1ho9WU9ZxMZawML+ssPKZfdnrg/OjR3pe0m9v8230z3acqphwvPJqzAkH54xRYm5ntZHGG1EPP3sux9H3qSPg==",
       "path": "system.windows.extensions/5.0.0",
       "hashPath": "system.windows.extensions.5.0.0.nupkg.sha512"
+    },
+    "ECoffee.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "ECoffee.Domain/1.0.0": {
       "type": "project",

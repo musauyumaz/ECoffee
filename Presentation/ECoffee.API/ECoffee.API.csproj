@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Core\ECoffee.Application\ECoffee.Application.csproj" />
     <ProjectReference Include="..\..\Infrastructure\ECoffee.Infrastructure\ECoffee.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Infrastructure\ECoffee.Persistence\ECoffee.Persistence.csproj" />

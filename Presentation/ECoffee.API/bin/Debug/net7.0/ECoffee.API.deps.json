@@ -707,6 +707,10 @@
         }
       },
       "ECoffee.Application/1.0.0": {
+        "dependencies": {
+          "ECoffee.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "7.0.4"
+        },
         "runtime": {
           "ECoffee.Application.dll": {}
         }
@@ -723,6 +727,7 @@
       },
       "ECoffee.Persistence/1.0.0": {
         "dependencies": {
+          "ECoffee.Application": "1.0.0",
           "ECoffee.Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.4",
           "Microsoft.Extensions.Configuration": "7.0.0",

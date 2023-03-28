@@ -10,3 +10,6 @@ D:\GithubRepom\Projeler\E-Coffee\Core\ECoffee.Application\obj\Debug\net7.0\ECoff
 D:\GithubRepom\Projeler\E-Coffee\Core\ECoffee.Application\obj\Debug\net7.0\refint\ECoffee.Application.dll
 D:\GithubRepom\Projeler\E-Coffee\Core\ECoffee.Application\obj\Debug\net7.0\ECoffee.Application.pdb
 D:\GithubRepom\Projeler\E-Coffee\Core\ECoffee.Application\obj\Debug\net7.0\ref\ECoffee.Application.dll
+D:\GithubRepom\Projeler\E-Coffee\Core\ECoffee.Application\bin\Debug\net7.0\ECoffee.Domain.dll
+D:\GithubRepom\Projeler\E-Coffee\Core\ECoffee.Application\bin\Debug\net7.0\ECoffee.Domain.pdb
+D:\GithubRepom\Projeler\E-Coffee\Core\ECoffee.Application\obj\Debug\net7.0\ECoffee.Application.csproj.CopyComplete

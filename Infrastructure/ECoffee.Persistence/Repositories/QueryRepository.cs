@@ -1,21 +1,19 @@
 ﻿using ECoffee.Application.Repositories;
 using ECoffee.Domain.Entities.Common;
+using ECoffee.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 
 namespace ECoffee.Persistence.Repositories
 {
     public class QueryRepository<T> : IQueryRepository<T> where T : BaseEntity
     {
-        public DbSet<T> Table => throw new NotImplementedException();
+        private readonly ECoffeeDbContext _context;
+        public QueryRepository(ECoffeeDbContext eCoffeeDbContext)=> _context = eCoffeeDbContext;
 
-        public IQueryable<T> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+        public DbSet<T> Table => _context.Set<T>();
 
-        public Task<T> GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public IQueryable<T> GetAll() => Table.AsQueryable();
+
+        public async Task<T> GetByIdAsync(int id) => await Table.AsQueryable().FirstOrDefaultAsync(x => x.Id == id);
     }
 }

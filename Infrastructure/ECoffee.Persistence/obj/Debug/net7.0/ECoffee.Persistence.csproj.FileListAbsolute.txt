@@ -15,3 +15,5 @@ D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\obj\Debug\ne
 D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\obj\Debug\net7.0\ECoffee.Persistence.pdb
 D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\obj\Debug\net7.0\ECoffee.Persistence.genruntimeconfig.cache
 D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\obj\Debug\net7.0\ref\ECoffee.Persistence.dll
+D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\bin\Debug\net7.0\ECoffee.Application.dll
+D:\GithubRepom\Projeler\E-Coffee\Infrastructure\ECoffee.Persistence\bin\Debug\net7.0\ECoffee.Application.pdb
