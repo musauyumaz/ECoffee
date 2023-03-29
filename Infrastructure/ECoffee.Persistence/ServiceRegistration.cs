@@ -21,12 +21,13 @@ namespace ECoffee.Persistence
 
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IProductService, ProductService>();
 
 
-            services.AddScoped<ICategoryQueryRepository, CategoryQueryRepository>();
             services.AddScoped<ICategoryCommandRepository, CategoryCommandRepository>();
+            services.AddScoped<ICategoryQueryRepository, CategoryQueryRepository>();
             services.AddScoped<IProductCommandRepository, ProductCommandRepository>();
-            services.AddScoped<IProductCommandRepository, ProductCommandRepository>();
+            services.AddScoped<IProductQueryRepository, ProductQueryRepository>();
             services.AddScoped<ICustomerCommandRepository,CustomerCommandRepository>();
             services.AddScoped<ICustomerQueryRepository,CustomerQueryRepository>();
 

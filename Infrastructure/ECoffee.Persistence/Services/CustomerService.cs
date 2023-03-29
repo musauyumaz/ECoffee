@@ -1,15 +1,8 @@
-﻿using ECoffee.Application.Features.Categories.DTOs;
-using ECoffee.Application.Features.Customers.DTOs;
-using ECoffee.Application.Repositories.Categories;
+﻿using ECoffee.Application.Features.Customers.DTOs;
 using ECoffee.Application.Repositories.Customers;
 using ECoffee.Application.Services;
 using ECoffee.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ECoffee.Persistence.Services
 {
@@ -28,14 +21,14 @@ namespace ECoffee.Persistence.Services
         {
             Customer customer = await _customerCommandRepository.AddAsync(CustomerConverter.AddCustomerDTOToCustomer(addCustomerDTO));
             await _customerCommandRepository.SaveAsync();
-            return CustomerConverter.CustomerTCustomerDTO(customer);
+            return CustomerConverter.CustomerToCustomerDTO(customer);
         }
 
         public async Task<CustomerDTO> DeleteAsync(int id)
         {
             Customer customer = await _customerCommandRepository.RemoveAsync(id);
             await _customerCommandRepository.SaveAsync();
-            return CustomerConverter.CustomerTCustomerDTO(customer);
+            return CustomerConverter.CustomerToCustomerDTO(customer);
         }
 
         public async Task<List<GetAllCustomersDTO>> GetAllAsync()
@@ -48,7 +41,7 @@ namespace ECoffee.Persistence.Services
             Customer customer = CustomerConverter.UpdateCustomerDTOToCustomer(updateCustomerDTO);
             _customerCommandRepository.Update(customer);
             await _customerCommandRepository.SaveAsync();
-            return CustomerConverter.CustomerTCustomerDTO(customer);
+            return CustomerConverter.CustomerToCustomerDTO(customer);
         }
     }
 }

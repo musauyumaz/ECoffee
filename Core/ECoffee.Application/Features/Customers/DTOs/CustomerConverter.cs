@@ -4,7 +4,7 @@ namespace ECoffee.Application.Features.Customers.DTOs
 {
     public static class CustomerConverter
     {
-        public static CustomerDTO CustomerTCustomerDTO(Customer customer)
+        public static CustomerDTO CustomerToCustomerDTO(Customer customer)
             => new() {Name=customer.Name,Surname=customer.Surname,Email=customer.Email };
         public static Customer AddCustomerDTOToCustomer(AddCustomerDTO addCustomerDTO)
             => new() { Name = addCustomerDTO.Name, Email = addCustomerDTO.Email ,Surname=addCustomerDTO.Surname};

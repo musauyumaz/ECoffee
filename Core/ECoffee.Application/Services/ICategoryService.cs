@@ -1,4 +1,5 @@
 ﻿using ECoffee.Application.Features.Categories.DTOs;
+using ECoffee.Domain.Entities;
 
 namespace ECoffee.Application.Services
 {
@@ -9,5 +10,6 @@ namespace ECoffee.Application.Services
         Task<CategoryDTO> AddAsync(AddCategoryDTO addCategoryDTO);
         Task<CategoryDTO> UpdateAsync(UpdateCategoryDTO updateCategoryDTO);
         Task<CategoryDTO> DeleteAsync(int id);
+        Task<List<Category>> GetAllCategoriesByIds(List<int> ids);
     }
 }
