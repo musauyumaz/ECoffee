@@ -3,6 +3,10 @@ using ECoffee.Application.Repositories.Products;
 using ECoffee.Application.Services;
 using ECoffee.Domain.Entities;
 
+using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata.Ecma335;
+
+
 namespace ECoffee.Persistence.Services
 {
     public class ProductService : IProductService
@@ -27,24 +31,29 @@ namespace ECoffee.Persistence.Services
 
         }
 
-        public Task<ProductDTO> DeleteAsync(int id)
+
+        public async Task<ProductDTO> DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            Product product = await _productCommandRepository.RemoveAsync(id);
+            await _productCommandRepository.SaveAsync();
+            return new() { Id = product.Id, Name = product.Name, Description = product.Description, Price = product.Price, UnitsInStock = product.UnitsInStock };
         }
 
-        public Task<List<GetAllProductsDTO>> GetAllAsync()
+        public async Task<List<GetAllProductsDTO>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            List<Product> products = await _productQueryRepository.GetAll().Include(c=>c.Categories).ToListAsync();
+            return ProductConverter.ProductListToGetAllProductsDTO(products);
         }
 
-        public Task<ProductDTO> GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<GetByIdProductDTO> GetByIdAsync(int id)
+        =>ProductConverter.ProductToGetByIdProductDTO(await _productQueryRepository.GetByIdAsync(id));
 
-        public Task<ProductDTO> UpdateAsync(UpdateProductDTO updateProductDTO)
+        public async Task<ProductDTO> UpdateAsync(UpdateProductDTO updateProductDTO)
         {
-            throw new NotImplementedException();
+            Product product = ProductConverter.UpdateProductDTOToProduct(updateProductDTO);
+            _productCommandRepository.Update(product);
+            await _productCommandRepository.SaveAsync();
+            return ProductConverter.ProductToProductDTO(product);
         }
     }
 }

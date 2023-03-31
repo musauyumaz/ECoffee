@@ -34,7 +34,7 @@ namespace ECoffee.Persistence.Services
         public async Task<List<GetAllCustomersDTO>> GetAllAsync()
             => CustomerConverter.CustomerListToGetAllCustomersDTO(await _customerQueryRepository.GetAll().ToListAsync());
         public async Task<GetByIdCustomerDTO> GetByIdAsync(int id)
-        =>CustomerConverter.CustomerToGetByIdCustomerDto(await _customerQueryRepository.GetByIdAsync(id));
+        =>CustomerConverter.CustomerToGetByIdCustomerDTO(await _customerQueryRepository.GetByIdAsync(id));
 
         public async Task<CustomerDTO> UpdateAsync(UpdateCustomerDTO updateCustomerDTO)
         {
