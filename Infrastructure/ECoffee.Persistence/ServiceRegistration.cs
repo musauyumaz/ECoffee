@@ -1,11 +1,13 @@
 ﻿using ECoffee.Application.Repositories.Categories;
 using ECoffee.Application.Repositories.Customers;
+using ECoffee.Application.Repositories.Orders;
 using ECoffee.Application.Repositories.Products;
 using ECoffee.Application.Services;
 using ECoffee.Persistence.Configurations;
 using ECoffee.Persistence.Contexts;
 using ECoffee.Persistence.Repositories.Categories;
 using ECoffee.Persistence.Repositories.Customers;
+using ECoffee.Persistence.Repositories.Orders;
 using ECoffee.Persistence.Repositories.Products;
 using ECoffee.Persistence.Services;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +24,7 @@ namespace ECoffee.Persistence
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IOrderService, OrderService>();
 
 
             services.AddScoped<ICategoryCommandRepository, CategoryCommandRepository>();
@@ -30,6 +33,8 @@ namespace ECoffee.Persistence
             services.AddScoped<IProductQueryRepository, ProductQueryRepository>();
             services.AddScoped<ICustomerCommandRepository,CustomerCommandRepository>();
             services.AddScoped<ICustomerQueryRepository,CustomerQueryRepository>();
+            services.AddScoped<IOrderCommandRepository, OrderCommandRepository>();
+            services.AddScoped<IOrderQueryRepository, OrderQueryRepository>();
 
         }
     }
