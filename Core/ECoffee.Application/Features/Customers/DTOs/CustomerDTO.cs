@@ -6,6 +6,6 @@
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Email { get; set; }
-        //IsActive i de çagırabiliriz //Serkan
+        //todo IsActive i de çagırabiliriz //Serkan
     }
 }

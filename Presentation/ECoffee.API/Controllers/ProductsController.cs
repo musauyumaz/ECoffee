@@ -1,10 +1,4 @@
-
-﻿using ECoffee.Application.Features.Categories.DTOs;
 using ECoffee.Application.Features.Products.DTOs;
-using ECoffee.Application.Services;
-using ECoffee.Persistence.Services;
-
-﻿using ECoffee.Application.Features.Products.DTOs;
 using ECoffee.Application.Services;
 
 using Microsoft.AspNetCore.Mvc;
@@ -24,7 +18,7 @@ namespace ECoffee.API.Controllers
 
         [HttpPost]
         public async Task<IActionResult> Add(AddProductDTO addProductDTO)
-        { 
+        {
             return Ok(await _productService.AddAsync(addProductDTO));
         }
         [HttpDelete]
@@ -47,9 +41,6 @@ namespace ECoffee.API.Controllers
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _productService.GetAllAsync());
-        {
-            ProductDTO productDTO = await _productService.AddAsync(addProductDTO);
-            return Ok(productDTO);
         }
     }
 }
