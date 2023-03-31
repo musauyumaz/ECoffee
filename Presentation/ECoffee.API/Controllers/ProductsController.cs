@@ -1,7 +1,12 @@
+
 ﻿using ECoffee.Application.Features.Categories.DTOs;
 using ECoffee.Application.Features.Products.DTOs;
 using ECoffee.Application.Services;
 using ECoffee.Persistence.Services;
+
+﻿using ECoffee.Application.Features.Products.DTOs;
+using ECoffee.Application.Services;
+
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECoffee.API.Controllers
@@ -42,6 +47,9 @@ namespace ECoffee.API.Controllers
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _productService.GetAllAsync());
+        {
+            ProductDTO productDTO = await _productService.AddAsync(addProductDTO);
+            return Ok(productDTO);
         }
     }
 }

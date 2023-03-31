@@ -4,13 +4,14 @@ namespace ECoffee.Application.Features.Customers.DTOs
 {
     public static class CustomerConverter
     {
-<<<<<<< Updated upstream
-        public static CustomerDTO CustomerTCustomerDTO(Customer customer)
+
+        public static CustomerDTO CustomerToCustomerDTO(Customer customer)
+
             => new() {Name=customer.Name,Surname=customer.Surname,Email=customer.Email };
-=======
+
         public static CustomerDTO CustomerToCustomerDTO(Customer customer)
             => new() {Id=customer.Id,Name=customer.Name,Surname=customer.Surname,Email=customer.Email };
->>>>>>> Stashed changes
+
         public static Customer AddCustomerDTOToCustomer(AddCustomerDTO addCustomerDTO)
             => new() { Name = addCustomerDTO.Name, Email = addCustomerDTO.Email ,Surname=addCustomerDTO.Surname};
         public static Customer UpdateCustomerDTOToCustomer(UpdateCustomerDTO updateCustomerDTO)

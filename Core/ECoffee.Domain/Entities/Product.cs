@@ -4,6 +4,10 @@ namespace ECoffee.Domain.Entities
 {
     public class Product : BaseEntity
     {
+        public Product()
+        {
+            Categories = new HashSet<Category>();
+        }
         public string Name { get; set; }
         public string Description { get; set; }
         public int UnitsInStock { get; set; }

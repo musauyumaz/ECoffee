@@ -2,8 +2,10 @@
 using ECoffee.Application.Repositories.Products;
 using ECoffee.Application.Services;
 using ECoffee.Domain.Entities;
+
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Metadata.Ecma335;
+
 
 namespace ECoffee.Persistence.Services
 {
@@ -29,12 +31,12 @@ namespace ECoffee.Persistence.Services
 
         }
 
+
         public async Task<ProductDTO> DeleteAsync(int id)
         {
             Product product = await _productCommandRepository.RemoveAsync(id);
             await _productCommandRepository.SaveAsync();
             return new() { Id = product.Id, Name = product.Name, Description = product.Description, Price = product.Price, UnitsInStock = product.UnitsInStock };
-
         }
 
         public async Task<List<GetAllProductsDTO>> GetAllAsync()
