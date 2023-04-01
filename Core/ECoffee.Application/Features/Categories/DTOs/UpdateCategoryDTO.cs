@@ -1,6 +1,8 @@
-﻿namespace ECoffee.Application.Features.Categories.DTOs
+﻿using ECoffee.Application.Abstractions.DTO;
+
+namespace ECoffee.Application.Features.Categories.DTOs
 {
-    public class UpdateCategoryDTO
+    public class UpdateCategoryDTO : IDTO
     {
         public int Id { get; set; }
         public string Name { get; set; }

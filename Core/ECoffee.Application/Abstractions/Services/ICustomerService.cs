@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECoffee.Application.Services
+namespace ECoffee.Application.Abstractions.Services
 {
     public interface ICustomerService
     {

@@ -1,5 +1,5 @@
-﻿using ECoffee.Application.Features.Customers.DTOs;
-using ECoffee.Application.Services;
+﻿using ECoffee.Application.Abstractions.Services;
+using ECoffee.Application.Features.Customers.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECoffee.API.Controllers

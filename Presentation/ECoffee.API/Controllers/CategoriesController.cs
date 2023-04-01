@@ -1,5 +1,9 @@
-﻿using ECoffee.Application.Features.Categories.DTOs;
-using ECoffee.Application.Services;
+﻿using ECoffee.Application.Features.Categories.Commands.Add;
+using ECoffee.Application.Features.Categories.Commands.Delete;
+using ECoffee.Application.Features.Categories.Commands.Update;
+using ECoffee.Application.Features.Categories.DTOs;
+using ECoffee.Application.Utilities.Results;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECoffee.API.Controllers
@@ -8,38 +12,41 @@ namespace ECoffee.API.Controllers
     [Route("api/[controller]/[action]")]
     public class CategoriesController : ControllerBase
     {
-        private readonly ICategoryService _categoryService;
+        private readonly IMediator _mediator;
 
-        public CategoriesController(ICategoryService categoryService)
+        public CategoriesController(IMediator mediator)
         {
-            _categoryService = categoryService;
+            _mediator = mediator;
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(AddCategoryDTO addCategoryDTO)
+        public async Task<IActionResult> Add(AddCategoryCommandRequest addCategoryCommandRequest)
         {
-            return Ok(await _categoryService.AddAsync(addCategoryDTO));
+            IDataResult<CategoryDTO> categoryDTO = await _mediator.Send(addCategoryCommandRequest);
+            return Ok(categoryDTO);
         }
         [HttpPut]
-        public async Task<IActionResult> Update(UpdateCategoryDTO updateCategoryDTO)
+        public async Task<IActionResult> Update(UpdateCategoryCommandRequest updateCategoryCommandRequest)
         {
-            return Ok(await _categoryService.UpdateAsync(updateCategoryDTO));
+            IDataResult<CategoryDTO> categoryDTO = await _mediator.Send(updateCategoryCommandRequest);
+            return Ok(categoryDTO);
         }
         [HttpDelete]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(DeleteCategoryCommandRequest deleteCategoryCommandRequest)
         {
-            return Ok(await _categoryService.DeleteAsync(id));
+            IDataResult<CategoryDTO> categoryDTO = await _mediator.Send(deleteCategoryCommandRequest);
+            return Ok(categoryDTO);
         }
-        [HttpGet]
-        public async Task<IActionResult> GetById(int id)
-        {
-            return Ok(await _categoryService.GetByIdAsync(id));
-        }
+        //[HttpGet]
+        //public async Task<IActionResult> GetById(int id)
+        //{
+        //    return Ok(await _categoryService.GetByIdAsync(id));
+        //}
 
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
-        {
-            return Ok(await _categoryService.GetAllAsync());
-        }
+        //[HttpGet]
+        //public async Task<IActionResult> GetAll()
+        //{
+        //    return Ok(await _categoryService.GetAllAsync());
+        //}
     }
 }

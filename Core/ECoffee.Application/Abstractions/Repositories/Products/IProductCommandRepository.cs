@@ -1,6 +1,6 @@
 ﻿using ECoffee.Domain.Entities;
 
-namespace ECoffee.Application.Repositories.Products
+namespace ECoffee.Application.Abstractions.Repositories.Products
 {
     public interface IProductCommandRepository : ICommandRepository<Product>
     {

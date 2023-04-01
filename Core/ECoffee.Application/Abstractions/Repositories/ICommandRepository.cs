@@ -1,6 +1,6 @@
 ﻿using ECoffee.Domain.Entities.Common;
 
-namespace ECoffee.Application.Repositories
+namespace ECoffee.Application.Abstractions.Repositories
 {
     public interface ICommandRepository<T> : IRepository<T> where T : BaseEntity
     {

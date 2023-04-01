@@ -1,6 +1,6 @@
 ﻿using ECoffee.Domain.Entities;
 
-namespace ECoffee.Application.Repositories.Categories
+namespace ECoffee.Application.Abstractions.Repositories.Categories
 {
     public interface ICategoryQueryRepository : IQueryRepository<Category>
     {

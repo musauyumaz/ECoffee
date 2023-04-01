@@ -1,6 +1,8 @@
-﻿namespace ECoffee.Application.Features.Categories.DTOs
+﻿using ECoffee.Application.Abstractions.DTO;
+
+namespace ECoffee.Application.Features.Categories.DTOs
 {
-    public class CategoryDTO
+    public class CategoryDTO : IDTO
     {
         public int Id { get; set; }
         public string? Name { get; set; }

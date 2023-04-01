@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECoffee.Application.Repositories.Customers
+namespace ECoffee.Application.Abstractions.Repositories.Customers
 {
     public interface ICustomerCommandRepository : ICommandRepository<Customer>
     {

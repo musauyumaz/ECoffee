@@ -1,4 +1,6 @@
-﻿using ECoffee.Domain.Entities;
+﻿using ECoffee.Application.Features.Categories.Commands.Add;
+using ECoffee.Application.Features.Categories.Commands.Update;
+using ECoffee.Domain.Entities;
 
 namespace ECoffee.Application.Features.Categories.DTOs
 {
@@ -16,13 +18,16 @@ namespace ECoffee.Application.Features.Categories.DTOs
             => new() { Id = category.Id, Description = category.Description, Name = category.Name };
 
         public static GetByIdCategoryDTO CategoryToGetByIdCategoryDTO(Category category)
-            => new() { Id = category.Id, Description = category.Description, Name = category.Name,ProductNames = category.Products.Select(p=>p.Name).ToList() };
+            => new() { Id = category.Id, Description = category.Description, Name = category.Name, ProductNames = category.Products.Select(p => p.Name).ToList() };
 
 
         public static List<GetAllCategoriesDTO> CategoryListToGetAllCategoriesDTO(List<Category> categories)
             => categories.Select(c => new GetAllCategoriesDTO() { Id = c.Id, Name = c.Name, Description = c.Description, ProductNames = c.Products.Select(p => p.Name).ToList() }).ToList();
+        public static AddCategoryDTO AddCategoryCommandRequestToAddCategoryDTO(AddCategoryCommandRequest addCategoryCommandRequest)
+            => new() { Name = addCategoryCommandRequest.Name, Description = addCategoryCommandRequest.Description };
 
-
+        public static UpdateCategoryDTO UpdateCategoryCommandRequestToUpdateCategoryDTO(UpdateCategoryCommandRequest updateCategoryCommandRequest)
+            => new() { Id = updateCategoryCommandRequest.Id, Name = updateCategoryCommandRequest.Name, Description = updateCategoryCommandRequest.Description, IsActive = updateCategoryCommandRequest.IsActive };
 
     }
 }

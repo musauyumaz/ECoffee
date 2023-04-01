@@ -1,7 +1,7 @@
 ﻿using ECoffee.Application.Features.Categories.DTOs;
 using ECoffee.Domain.Entities;
 
-namespace ECoffee.Application.Services
+namespace ECoffee.Application.Abstractions.Services
 {
     public interface ICategoryService
     {

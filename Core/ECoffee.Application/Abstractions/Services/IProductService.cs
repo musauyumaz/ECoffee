@@ -1,6 +1,6 @@
 ﻿using ECoffee.Application.Features.Products.DTOs;
 
-namespace ECoffee.Application.Services
+namespace ECoffee.Application.Abstractions.Services
 {
     public interface IProductService
     {
