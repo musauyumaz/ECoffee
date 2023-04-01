@@ -24,11 +24,10 @@ namespace ECoffee.Persistence.Services
 
         public async Task<ProductDTO> AddAsync(AddProductDTO addProductDTO)
         {
-            Product product = await _productCommandRepository.AddAsync(new() { Name = addProductDTO.Name, Price = addProductDTO.Price, UnitsInStock = addProductDTO.UnitsInStock, Description = addProductDTO.Description});
+            Product product = await _productCommandRepository.AddAsync(ProductConverter.AddProductDTOToProduct(addProductDTO));
             product.Categories = await _categoryService.GetAllCategoriesByIds(addProductDTO.CategoryIds);
             await _productCommandRepository.SaveAsync();
-            return new() { Id = product.Id, Name = product.Name, Description = product.Description, Price = product.Price, UnitsInStock = product.UnitsInStock };
-
+            return ProductConverter.ProductToProductDTO(product);
         }
 
 
@@ -41,12 +40,12 @@ namespace ECoffee.Persistence.Services
 
         public async Task<List<GetAllProductsDTO>> GetAllAsync()
         {
-            List<Product> products = await _productQueryRepository.GetAll().Include(c=>c.Categories).ToListAsync();
+            List<Product> products = await _productQueryRepository.GetAll().Include(c => c.Categories).ToListAsync();
             return ProductConverter.ProductListToGetAllProductsDTO(products);
         }
 
         public async Task<GetByIdProductDTO> GetByIdAsync(int id)
-        =>ProductConverter.ProductToGetByIdProductDTO(await _productQueryRepository.GetByIdAsync(id));
+        => ProductConverter.ProductToGetByIdProductDTO(await _productQueryRepository.GetByIdAsync(id));
 
         public async Task<ProductDTO> UpdateAsync(UpdateProductDTO updateProductDTO)
         {

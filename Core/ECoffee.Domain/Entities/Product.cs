@@ -13,5 +13,6 @@ namespace ECoffee.Domain.Entities
         public int UnitsInStock { get; set; }
         public float Price { get; set; }
         public ICollection<Category> Categories { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }
