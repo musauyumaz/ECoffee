@@ -31,8 +31,8 @@ namespace ECoffee.API.Controllers
             IDataResult<CategoryDTO> categoryDTO = await _mediator.Send(updateCategoryCommandRequest);
             return Ok(categoryDTO);
         }
-        [HttpDelete]
-        public async Task<IActionResult> Delete(DeleteCategoryCommandRequest deleteCategoryCommandRequest)
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> Delete([FromRoute]DeleteCategoryCommandRequest deleteCategoryCommandRequest)
         {
             IDataResult<CategoryDTO> categoryDTO = await _mediator.Send(deleteCategoryCommandRequest);
             return Ok(categoryDTO);

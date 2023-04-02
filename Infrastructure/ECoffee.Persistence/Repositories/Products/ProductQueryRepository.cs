@@ -1,4 +1,4 @@
-﻿using ECoffee.Application.Repositories.Products;
+﻿using ECoffee.Application.Abstractions.Repositories.Products;
 using ECoffee.Domain.Entities;
 using ECoffee.Persistence.Contexts;
 

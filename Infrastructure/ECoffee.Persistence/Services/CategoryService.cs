@@ -1,6 +1,6 @@
-﻿using ECoffee.Application.Features.Categories.DTOs;
-using ECoffee.Application.Repositories.Categories;
-using ECoffee.Application.Services;
+﻿using ECoffee.Application.Abstractions.Repositories.Categories;
+using ECoffee.Application.Abstractions.Services;
+using ECoffee.Application.Features.Categories.DTOs;
 using ECoffee.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 

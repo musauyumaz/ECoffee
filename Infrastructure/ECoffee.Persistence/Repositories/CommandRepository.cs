@@ -1,4 +1,4 @@
-﻿using ECoffee.Application.Repositories;
+﻿using ECoffee.Application.Abstractions.Repositories;
 using ECoffee.Domain.Entities.Common;
 using ECoffee.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;

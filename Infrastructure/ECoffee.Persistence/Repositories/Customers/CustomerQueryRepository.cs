@@ -1,4 +1,4 @@
-﻿using ECoffee.Application.Repositories.Customers;
+﻿using ECoffee.Application.Abstractions.Repositories.Customers;
 using ECoffee.Domain.Entities;
 using ECoffee.Persistence.Contexts;
 

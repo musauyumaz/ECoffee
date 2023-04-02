@@ -1,6 +1,6 @@
-﻿using ECoffee.Application.Features.Customers.DTOs;
-using ECoffee.Application.Repositories.Customers;
-using ECoffee.Application.Services;
+﻿using ECoffee.Application.Abstractions.Repositories.Customers;
+using ECoffee.Application.Abstractions.Services;
+using ECoffee.Application.Features.Customers.DTOs;
 using ECoffee.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 

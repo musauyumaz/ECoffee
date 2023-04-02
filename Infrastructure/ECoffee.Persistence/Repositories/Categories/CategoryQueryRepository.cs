@@ -1,4 +1,4 @@
-﻿using ECoffee.Application.Repositories.Categories;
+﻿using ECoffee.Application.Abstractions.Repositories.Categories;
 using ECoffee.Domain.Entities;
 using ECoffee.Persistence.Contexts;
 

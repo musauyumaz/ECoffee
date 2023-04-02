@@ -1,10 +1,9 @@
-﻿using ECoffee.Application.Features.Products.DTOs;
-using ECoffee.Application.Repositories.Products;
-using ECoffee.Application.Services;
+﻿using ECoffee.Application.Abstractions.Repositories.Products;
+using ECoffee.Application.Abstractions.Services;
+using ECoffee.Application.Features.Products.DTOs;
 using ECoffee.Domain.Entities;
 
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Metadata.Ecma335;
 
 
 namespace ECoffee.Persistence.Services

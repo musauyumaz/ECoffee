@@ -1,7 +1,7 @@
-﻿using ECoffee.Application.Repositories.Categories;
-using ECoffee.Application.Repositories.Customers;
-using ECoffee.Application.Repositories.Products;
-using ECoffee.Application.Services;
+﻿using ECoffee.Application.Abstractions.Repositories.Categories;
+using ECoffee.Application.Abstractions.Repositories.Customers;
+using ECoffee.Application.Abstractions.Repositories.Products;
+using ECoffee.Application.Abstractions.Services;
 using ECoffee.Persistence.Configurations;
 using ECoffee.Persistence.Contexts;
 using ECoffee.Persistence.Repositories.Categories;
