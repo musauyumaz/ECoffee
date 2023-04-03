@@ -1,6 +1,6 @@
-﻿namespace ECoffee.Application.Features.Order.DTOs
+﻿namespace ECoffee.Application.Features.Orders.DTOs
 {
-    public class GetAllOrderDTO
+    public class GetAllOrdersDTO
     {
         public int Id { get; set; }
         public string CustomerName { get; set; }
