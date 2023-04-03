@@ -1,4 +1,5 @@
 ﻿using ECoffee.Application.Features.Products.DTOs;
+using ECoffee.Domain.Entities;
 
 namespace ECoffee.Application.Abstractions.Services
 {
@@ -9,5 +10,6 @@ namespace ECoffee.Application.Abstractions.Services
         Task<ProductDTO> AddAsync(AddProductDTO addProductDTO);
         Task<ProductDTO> UpdateAsync(UpdateProductDTO updateProductDTO);
         Task<ProductDTO> DeleteAsync(int id);
+        Task<List<Product>> GetAllProductsByIds(List<int> ids);
     }
 }

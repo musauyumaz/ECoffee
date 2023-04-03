@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECoffee.Application.Features.Order.DTOs
+namespace ECoffee.Application.Features.Orders.DTOs
 {
     public class OrderDTO
     {
