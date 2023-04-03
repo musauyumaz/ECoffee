@@ -5,7 +5,7 @@ namespace ECoffee.Application.Abstractions.Services
 {
     public interface ICategoryService
     {
-        Task<List<GetAllCategoriesDTO>> GetAllAsync();
+        Task<(List<GetAllCategoriesDTO>, int totalCount)> GetAllAsync(int page,int size);
         Task<GetByIdCategoryDTO> GetByIdAsync(int id);
         Task<CategoryDTO> AddAsync(AddCategoryDTO addCategoryDTO);
         Task<CategoryDTO> UpdateAsync(UpdateCategoryDTO updateCategoryDTO);

@@ -43,6 +43,9 @@ namespace ECoffee.Persistence.Services
             return ProductConverter.ProductListToGetAllProductsDTO(products);
         }
 
+        public async Task<List<Product>> GetAllProductsByIds(List<int> ids)
+            => await _productQueryRepository.GetAll().Where(p=>ids.Contains(p.Id)).ToListAsync();
+
         public async Task<GetByIdProductDTO> GetByIdAsync(int id)
         => ProductConverter.ProductToGetByIdProductDTO(await _productQueryRepository.GetByIdAsync(id));
 
