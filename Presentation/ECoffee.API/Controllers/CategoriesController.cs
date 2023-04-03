@@ -2,6 +2,7 @@
 using ECoffee.Application.Features.Categories.Commands.Delete;
 using ECoffee.Application.Features.Categories.Commands.Update;
 using ECoffee.Application.Features.Categories.DTOs;
+using ECoffee.Application.Features.Categories.Queries.GetAll;
 using ECoffee.Application.Utilities.Results;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -43,10 +44,11 @@ namespace ECoffee.API.Controllers
         //    return Ok(await _categoryService.GetByIdAsync(id));
         //}
 
-        //[HttpGet]
-        //public async Task<IActionResult> GetAll()
-        //{
-        //    return Ok(await _categoryService.GetAllAsync());
-        //}
+        [HttpGet]
+        public async Task<IActionResult> GetAll([FromQuery] GetAllCategoryQueryRequest getAllCategoryQueryRequest)
+        {
+            IDataResult<GetAllCategoryQueryResponse> getAllCategoryQueryResponse = await _mediator.Send(getAllCategoryQueryRequest);
+            return Ok(getAllCategoryQueryResponse);
+        }
     }
 }
