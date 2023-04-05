@@ -37,21 +37,22 @@ namespace ECoffee.Persistence.Services
             return new() { Id = product.Id, Name = product.Name, Description = product.Description, Price = product.Price, UnitsInStock = product.UnitsInStock };
         }
 
-        public async Task<List<GetAllProductsDTO>> GetAllAsync()
+        public async Task<(List<GetAllProductsDTO>, int totalCount)> GetAllAsync(int page, int size)
         {
-            List<Product> products = await _productQueryRepository.GetAll().Include(c => c.Categories).ToListAsync();
-            return ProductConverter.ProductListToGetAllProductsDTO(products);
+            List<Product> products = await _productQueryRepository.GetAll().Skip(page * size).Take(size).Include(c => c.Categories).ToListAsync();
+            return (ProductConverter.ProductListToGetAllProductsDTO(products), await _productQueryRepository.GetAll().CountAsync());
         }
 
         public async Task<List<Product>> GetAllProductsByIds(List<int> ids)
-            => await _productQueryRepository.GetAll().Where(p=>ids.Contains(p.Id)).ToListAsync();
+            => await _productQueryRepository.GetAll().Where(p => ids.Contains(p.Id)).ToListAsync();
 
         public async Task<GetByIdProductDTO> GetByIdAsync(int id)
-        => ProductConverter.ProductToGetByIdProductDTO(await _productQueryRepository.GetByIdAsync(id));
+        => ProductConverter.ProductToGetByIdProductDTO(await _productQueryRepository.Table.Include(p => p.Categories).FirstOrDefaultAsync(p => p.Id == id));
 
         public async Task<ProductDTO> UpdateAsync(UpdateProductDTO updateProductDTO)
         {
             Product product = ProductConverter.UpdateProductDTOToProduct(updateProductDTO);
+            product.Categories = await _categoryService.GetAllCategoriesByIds(updateProductDTO.CategoryIds);
             _productCommandRepository.Update(product);
             await _productCommandRepository.SaveAsync();
             return ProductConverter.ProductToProductDTO(product);
