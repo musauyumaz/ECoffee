@@ -5,7 +5,7 @@ namespace ECoffee.Application.Abstractions.Services
 {
     public interface IProductService
     {
-        Task<List<GetAllProductsDTO>> GetAllAsync();
+        Task<(List<GetAllProductsDTO>, int totalCount)> GetAllAsync(int page, int size);
         Task<GetByIdProductDTO> GetByIdAsync(int id);
         Task<ProductDTO> AddAsync(AddProductDTO addProductDTO);
         Task<ProductDTO> UpdateAsync(UpdateProductDTO updateProductDTO);
