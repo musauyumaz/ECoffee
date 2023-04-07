@@ -1,6 +1,8 @@
-﻿namespace ECoffee.Application.Features.Customers.DTOs
+﻿using ECoffee.Application.Abstractions.DTO;
+
+namespace ECoffee.Application.Features.Customers.DTOs
 {
-    public class CustomerDTO
+    public class CustomerDTO:IDTO
     {
         public int Id { get; set; }
         public string Name { get; set; }
