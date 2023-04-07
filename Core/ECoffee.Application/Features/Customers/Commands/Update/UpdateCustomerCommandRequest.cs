@@ -1,13 +1,15 @@
-﻿using ECoffee.Application.Abstractions.DTO;
+﻿using ECoffee.Application.Features.Customers.DTOs;
+using ECoffee.Application.Utilities.Results;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECoffee.Application.Features.Customers.DTOs
+namespace ECoffee.Application.Features.Customers.Commands.Update
 {
-    public class GetAllCustomersDTO
+    public class UpdateCustomerCommandRequest:IRequest<IDataResult<CustomerDTO>>
     {
         public int Id { get; set; }
         public string Name { get; set; }

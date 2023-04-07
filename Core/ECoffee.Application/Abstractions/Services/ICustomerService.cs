@@ -10,7 +10,7 @@ namespace ECoffee.Application.Abstractions.Services
 {
     public interface ICustomerService
     {
-        Task<List<GetAllCustomersDTO>> GetAllAsync();
+        Task<(List<GetAllCustomersDTO>,int TotalCount)> GetAllAsync(int page,int size);
         Task<GetByIdCustomerDTO> GetByIdAsync(int id);
         Task<CustomerDTO> AddAsync(AddCustomerDTO addCustomerDTO);
         Task<CustomerDTO> UpdateAsync(UpdateCustomerDTO updateCustomerDTO);

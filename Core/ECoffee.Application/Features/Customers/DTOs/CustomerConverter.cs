@@ -1,4 +1,8 @@
-﻿using ECoffee.Domain.Entities;
+﻿using ECoffee.Application.Features.Customers.Commands.Add;
+using ECoffee.Application.Features.Customers.Commands.Update;
+using ECoffee.Application.Features.Products.DTOs;
+using ECoffee.Application.Utilities.Results;
+using ECoffee.Domain.Entities;
 
 namespace ECoffee.Application.Features.Customers.DTOs
 {
@@ -18,5 +22,11 @@ namespace ECoffee.Application.Features.Customers.DTOs
 
         public static List<GetAllCustomersDTO> CustomerListToGetAllCustomersDTO(List<Customer> customers)
             => customers.Select(c => new GetAllCustomersDTO { Id = c.Id, Email = c.Email, Name = c.Name, Surname = c.Surname }).ToList();
+
+        public static AddCustomerDTO AddCustomerCommandRequestToAddCustomerDTO(AddCustomerCommandRequest addCustomerCommandRequest)
+        => new() { Email = addCustomerCommandRequest.Email, Name = addCustomerCommandRequest.Name, Surname = addCustomerCommandRequest.Surname };
+
+        public static UpdateCustomerDTO UpdateCustomerCommandRequestToUpdateCustomerDTO(UpdateCustomerCommandRequest updateCustomerCommandRequest)
+            => new() { Id= updateCustomerCommandRequest.Id,Name = updateCustomerCommandRequest.Name,Surname = updateCustomerCommandRequest.Surname,Email = updateCustomerCommandRequest.Email};
     }
 }
