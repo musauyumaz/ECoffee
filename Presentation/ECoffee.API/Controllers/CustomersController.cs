@@ -25,7 +25,7 @@ namespace ECoffee.API.Controllers
         public async Task<IActionResult> Add(AddCustomerCommandRequest addCustomerCommandRequest)
         {
             IDataResult<CustomerDTO> response = await _mediator.Send(addCustomerCommandRequest);
-            return Ok(response);
+            return Created("/api/customers/add",response);
         }
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] UpdateCustomerCommandRequest updateCustomerCommandRequest)

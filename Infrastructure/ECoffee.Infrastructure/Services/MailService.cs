@@ -37,5 +37,18 @@ namespace ECoffee.Infrastructure.Services
             await smtp.SendMailAsync(mail);
         }
 
+        public async Task WelcomeUserMailAsync(string email, string fullName)
+        {
+            StringBuilder mail = new StringBuilder();
+            mail.Append("Merhaba ");
+            mail.Append(fullName);
+            mail.Append("<br>   E-Coffee'ye hoş geldiniz! Sizinle tanışmak için çok heyecanlıyız.Hesabınızın başarıyla oluşturulduğunu ve artık siteye giriş yapabileceğinizi bildirmek istiyoruz.");
+            mail.Append("<br>Unutmayın, hesabınızda birçok özellik ve avantaj sizi bekliyor.Sitedeki deneyiminizi en üst düzeye çıkarmak için tüm seçenekleri keşfetmenizi öneriyoruz.");
+            mail.Append("<br>Sorularınız veya yardıma ihtiyacınız olduğunda, lütfen bizimle iletişime geçmekten çekinmeyin.Yardımcı olmaktan mutluluk duyacağız.");
+            mail.Append("<br>İyi günler dileriz!<br>");
+            mail.Append("<br>Saygılarımızla");
+            mail.Append("<br>E-Coffee Ekibi");
+            await SendMailAsync(email,"Hoşgeldiniz :)",mail.ToString());
+        }
     }
 }
