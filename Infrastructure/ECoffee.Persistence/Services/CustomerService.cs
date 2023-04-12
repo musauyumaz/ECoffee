@@ -1,6 +1,7 @@
 ﻿using ECoffee.Application.Abstractions.Repositories.Customers;
 using ECoffee.Application.Abstractions.Services;
 using ECoffee.Application.Features.Customers.DTOs;
+using ECoffee.Application.Features.Orders;
 using ECoffee.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -31,8 +32,9 @@ namespace ECoffee.Persistence.Services
             return CustomerConverter.CustomerToCustomerDTO(customer);
         }
 
-        public async Task<List<GetAllCustomersDTO>> GetAllAsync()
-            => CustomerConverter.CustomerListToGetAllCustomersDTO(await _customerQueryRepository.GetAll().ToListAsync());
+        public async Task<(List<GetAllCustomersDTO>, int TotalCount)> GetAllAsync(int page, int size)
+            => (CustomerConverter.CustomerListToGetAllCustomersDTO(await _customerQueryRepository.GetAll().Where(c => c.IsActive == true).Skip(page * size).Take(size).ToListAsync()), await _customerQueryRepository.GetAll().CountAsync());
+
         public async Task<GetByIdCustomerDTO> GetByIdAsync(int id)
         =>CustomerConverter.CustomerToGetByIdCustomerDTO(await _customerQueryRepository.GetByIdAsync(id));
 

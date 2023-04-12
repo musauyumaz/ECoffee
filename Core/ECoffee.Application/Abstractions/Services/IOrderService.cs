@@ -11,7 +11,7 @@ namespace ECoffee.Application.Abstractions.Services
 {
     public interface IOrderService
     {
-        Task<List<GetAllOrdersDTO>> GetAllAsync();
+        Task<(List<GetAllOrdersDTO>, int TotalCount)> GetAllAsync(int page, int size);
         Task<GetByIdOrderDTO> GetByIdAsync(int id);
         Task<OrderDTO> AddAsync(AddOrderDTO addOrderDTO);
         Task<OrderDTO> UpdateAsync(UpdateOrderDTO updateOrderDTO);

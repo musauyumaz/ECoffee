@@ -33,7 +33,8 @@ namespace ECoffee.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetById(int id)
         {
-            return Ok(await _customerService.GetByIdAsync(id));
+            IDataResult<GetByIdCustomerDTO> response = await _mediator.Send(getByIdCustomerQueryRequest);
+            return Ok(response);
         }
         [HttpGet]
         public async Task<IActionResult> GetAll()
