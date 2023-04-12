@@ -1,4 +1,6 @@
-﻿using ECoffee.Domain.Entities;
+﻿using ECoffee.Application.Features.Products.Commands.Add;
+using ECoffee.Application.Features.Products.Commands.Update;
+using ECoffee.Domain.Entities;
 
 namespace ECoffee.Application.Features.Products.DTOs
 {
@@ -28,5 +30,10 @@ namespace ECoffee.Application.Features.Products.DTOs
                 CategoryNames = p.Categories.Select(c => c.Name).ToList()
             }).ToList();
 
+        public static AddProductDTO AddProductCommandRequestToAddProductDTO(AddProductCommandRequest addProductCommandRequest)
+            => new() { Name = addProductCommandRequest.Name, Description = addProductCommandRequest.Description, Price = addProductCommandRequest.Price, UnitsInStock = addProductCommandRequest.UnitsInStock, CategoryIds = addProductCommandRequest.CategoryIds };
+
+        public static UpdateProductDTO UpdateProductCommandRequestToUpdateProductDTO(UpdateProductCommandRequest updateProductCommandRequest)
+        => new() { Id = updateProductCommandRequest.Id, Name = updateProductCommandRequest.Name, Description = updateProductCommandRequest.Description, Price = updateProductCommandRequest.Price, UnitsInStock = updateProductCommandRequest.UnitsInStock, CategoryIds = updateProductCommandRequest.CategoryIds, IsActive = updateProductCommandRequest.IsActive };
     }
 }

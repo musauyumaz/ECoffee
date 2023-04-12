@@ -1,6 +1,11 @@
-using ECoffee.Application.Abstractions.Services;
+using ECoffee.Application.Features.Products.Commands.Add;
+using ECoffee.Application.Features.Products.Commands.Delete;
+using ECoffee.Application.Features.Products.Commands.Update;
 using ECoffee.Application.Features.Products.DTOs;
-
+using ECoffee.Application.Features.Products.Queries.GetAll;
+using ECoffee.Application.Features.Products.Queries.GetById;
+using ECoffee.Application.Utilities.Results;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECoffee.API.Controllers
@@ -9,38 +14,43 @@ namespace ECoffee.API.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private IProductService _productService;
+        private IMediator _mediator;
 
-        public ProductsController(IProductService productService)
+        public ProductsController(IMediator mediator)
         {
-            _productService = productService;
+            _mediator = mediator;
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(AddProductDTO addProductDTO)
+        public async Task<IActionResult> Add(AddProductCommandRequest addProductCommandRequest)
         {
-            return Ok(await _productService.AddAsync(addProductDTO));
+            IDataResult<ProductDTO> response = await _mediator.Send(addProductCommandRequest);
+            return Ok(response);
         }
-        [HttpDelete]
-        public async Task<IActionResult> Delete(int id)
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> Delete([FromRoute]DeleteProductCommandRequest deleteProductCommandRequest)
         {
-            return Ok(await _productService.DeleteAsync(id));
+            IDataResult<ProductDTO> response = await _mediator.Send(deleteProductCommandRequest);
+            return Ok(response);
         }
         [HttpPut]
-        public async Task<IActionResult> Update(UpdateProductDTO updateProductDTO)
+        public async Task<IActionResult> Update([FromBody]UpdateProductCommandRequest updateProductCommandRequest)
         {
-            return Ok(await _productService.UpdateAsync(updateProductDTO));
+            IDataResult<ProductDTO> response = await _mediator.Send(updateProductCommandRequest);
+            return Ok(response);
         }
-        [HttpGet]
-        public async Task<IActionResult> GetById(int id)
+        [HttpGet("{Id}")]
+        public async Task<IActionResult> GetById([FromRoute] GetByIdProductQueryRequest getByIdProductQueryRequest)
         {
-            return Ok(await _productService.GetByIdAsync(id));
+            IDataResult<GetByIdProductDTO> response = await _mediator.Send(getByIdProductQueryRequest);
+            return Ok(response);
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] GetAllProductQueryRequest getAllProductQueryRequest)
         {
-            return Ok(await _productService.GetAllAsync());
+            IDataResult<GetAllProductQueryResponse> response = await _mediator.Send(getAllProductQueryRequest);
+            return Ok(response);
         }
     }
 }

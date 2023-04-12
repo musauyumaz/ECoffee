@@ -31,8 +31,8 @@ namespace ECoffee.Persistence.Services
             return CategoryConverter.CategoryToCategoryDTO(category);
         }
 
-        public async Task<List<GetAllCategoriesDTO>> GetAllAsync()
-            => CategoryConverter.CategoryListToGetAllCategoriesDTO(await _categoryQueryRepository.GetAll().Include(c => c.Products).ToListAsync());
+        public async Task<(List<GetAllCategoriesDTO>, int totalCount)> GetAllAsync(int page, int size)
+            => (CategoryConverter.CategoryListToGetAllCategoriesDTO(await _categoryQueryRepository.GetAll().Where(c => c.IsActive == true).Include(c => c.Products).Skip(page * size).Take(size).ToListAsync()), await _categoryQueryRepository.GetAll().CountAsync());
 
         public async Task<List<Category>> GetAllCategoriesByIds(List<int> ids)
             => await _categoryQueryRepository.GetAll().Where(c => ids.Contains(c.Id)).ToListAsync();

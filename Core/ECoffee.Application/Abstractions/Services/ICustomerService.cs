@@ -1,4 +1,5 @@
 ﻿using ECoffee.Application.Features.Customers.DTOs;
+using ECoffee.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace ECoffee.Application.Abstractions.Services
 {
     public interface ICustomerService
     {
-        Task<List<GetAllCustomersDTO>> GetAllAsync();
+        Task<(List<GetAllCustomersDTO> customers,int totalCount)> GetAllAsync(int page,int size);
         Task<GetByIdCustomerDTO> GetByIdAsync(int id);
         Task<CustomerDTO> AddAsync(AddCustomerDTO addCustomerDTO);
         Task<CustomerDTO> UpdateAsync(UpdateCustomerDTO updateCustomerDTO);

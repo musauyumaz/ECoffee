@@ -1,44 +1,56 @@
-﻿using ECoffee.Application.Abstractions.Services;
+﻿using ECoffee.Application.Features.Customers.Commands.Add;
+using ECoffee.Application.Features.Customers.Commands.Delete;
+using ECoffee.Application.Features.Customers.Commands.Update;
 using ECoffee.Application.Features.Customers.DTOs;
+using ECoffee.Application.Features.Customers.Queries.GetAll;
+using ECoffee.Application.Features.Customers.Queries.GetById;
+using ECoffee.Application.Utilities.Results;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECoffee.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
-    public class CustomersController: ControllerBase
+    public class CustomersController : ControllerBase
     {
-        private readonly ICustomerService _customerService;
+        private readonly IMediator _mediator;
 
-        public CustomersController(ICustomerService customerService)
+        public CustomersController(IMediator mediator)
         {
-            _customerService = customerService;
+            _mediator = mediator;
         }
 
-        [HttpPost] 
-        public async Task<IActionResult> Add(AddCustomerDTO addCustomerDTO)
+        [HttpPost]
+        public async Task<IActionResult> Add(AddCustomerCommandRequest addCustomerCommandRequest)
         {
-            return Ok(await _customerService.AddAsync(addCustomerDTO));
+            IDataResult<CustomerDTO> response = await _mediator.Send(addCustomerCommandRequest);
+            return Created("/api/customers/add",response);
         }
         [HttpPut]
-        public async Task<IActionResult> Update(UpdateCustomerDTO updateCustomerDTO)
+        public async Task<IActionResult> Update([FromBody] UpdateCustomerCommandRequest updateCustomerCommandRequest)
         {
-            return Ok(await _customerService.UpdateAsync(updateCustomerDTO));
+            IDataResult<CustomerDTO> response = await _mediator.Send(updateCustomerCommandRequest);
+            return Ok(response);
         }
-        [HttpDelete]
-        public async Task<IActionResult> Delete(int id)
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> Delete([FromRoute] DeleteCustomerCommandRequest deleteCustomerCommandRequest)
         {
-            return Ok(await _customerService.DeleteAsync(id));
+            IDataResult<CustomerDTO> response = await _mediator.Send(deleteCustomerCommandRequest);
+            return Ok(response);
+        }
+        [HttpGet("{Id}")]
+        public async Task<IActionResult> GetById([FromRoute] GetByIdCustomerQueryRequest getByIdCustomerQueryRequest)
+        {
+            IDataResult<GetByIdCustomerDTO> response = await _mediator.Send(getByIdCustomerQueryRequest);
+            return Ok(response);
+
         }
         [HttpGet]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetAll([FromQuery] GetAllCustomerQueryRequest getAllCustomerQueryRequest)
         {
-            return Ok(await _customerService.GetByIdAsync(id));
-        }
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
-        {
-            return Ok(await _customerService.GetAllAsync());
+            IDataResult<GetAllCustomerQueryResponse> result = await _mediator.Send(getAllCustomerQueryRequest);
+            return Ok(result);
         }
     }
 }

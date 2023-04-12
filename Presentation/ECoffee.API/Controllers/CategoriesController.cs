@@ -2,6 +2,8 @@
 using ECoffee.Application.Features.Categories.Commands.Delete;
 using ECoffee.Application.Features.Categories.Commands.Update;
 using ECoffee.Application.Features.Categories.DTOs;
+using ECoffee.Application.Features.Categories.Queries.GetAll;
+using ECoffee.Application.Features.Categories.Queries.GetById;
 using ECoffee.Application.Utilities.Results;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -22,31 +24,33 @@ namespace ECoffee.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(AddCategoryCommandRequest addCategoryCommandRequest)
         {
-            IDataResult<CategoryDTO> categoryDTO = await _mediator.Send(addCategoryCommandRequest);
-            return Ok(categoryDTO);
+            IDataResult<CategoryDTO> response = await _mediator.Send(addCategoryCommandRequest);
+            return Ok(response);
         }
         [HttpPut]
         public async Task<IActionResult> Update(UpdateCategoryCommandRequest updateCategoryCommandRequest)
         {
-            IDataResult<CategoryDTO> categoryDTO = await _mediator.Send(updateCategoryCommandRequest);
-            return Ok(categoryDTO);
+            IDataResult<CategoryDTO> response = await _mediator.Send(updateCategoryCommandRequest);
+            return Ok(response);
         }
         [HttpDelete("{Id}")]
         public async Task<IActionResult> Delete([FromRoute]DeleteCategoryCommandRequest deleteCategoryCommandRequest)
         {
-            IDataResult<CategoryDTO> categoryDTO = await _mediator.Send(deleteCategoryCommandRequest);
-            return Ok(categoryDTO);
+            IDataResult<CategoryDTO> response = await _mediator.Send(deleteCategoryCommandRequest);
+            return Ok(response);
         }
-        //[HttpGet]
-        //public async Task<IActionResult> GetById(int id)
-        //{
-        //    return Ok(await _categoryService.GetByIdAsync(id));
-        //}
+        [HttpGet("{Id}")]
+        public async Task<IActionResult> GetById([FromRoute]GetByIdCategoryQueryRequest getByIdCategoryRequest)
+        {
+            IDataResult<GetByIdCategoryDTO> response = await _mediator.Send(getByIdCategoryRequest);
+            return Ok(response);
+        }
 
-        //[HttpGet]
-        //public async Task<IActionResult> GetAll()
-        //{
-        //    return Ok(await _categoryService.GetAllAsync());
-        //}
+        [HttpGet]
+        public async Task<IActionResult> GetAll([FromQuery] GetAllCategoryQueryRequest getAllCategoryQueryRequest)
+        {
+            IDataResult<GetAllCategoryQueryResponse> response = await _mediator.Send(getAllCategoryQueryRequest);
+            return Ok(response);
+        }
     }
 }

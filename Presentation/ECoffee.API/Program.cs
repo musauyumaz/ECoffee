@@ -1,4 +1,5 @@
 using ECoffee.Application;
+using ECoffee.Infrastructure;
 using ECoffee.Persistence;
 
 namespace ECoffee.API
@@ -15,6 +16,7 @@ namespace ECoffee.API
 
             builder.Services.AddPersistenceServices();
             builder.Services.AddApplicationServices();
+            builder.Services.AddInfrastructureServices();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

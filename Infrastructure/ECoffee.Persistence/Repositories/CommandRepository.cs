@@ -16,7 +16,12 @@ namespace ECoffee.Persistence.Repositories
             => Table.AddAsync(entity).Result.Entity;
 
         public async Task<T> RemoveAsync(int id)
-            => Table.Remove(await Table.FirstOrDefaultAsync(data => data.Id == id)).Entity;
+        {
+            T entity = await Table.FirstOrDefaultAsync(data => data.Id == id);
+            entity.IsActive = false;
+            return entity;
+        }
+
 
         public async Task<int> SaveAsync()
             => await _context.SaveChangesAsync();
