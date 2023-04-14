@@ -1,4 +1,5 @@
-﻿using ECoffee.Application.Features.Customers.Commands.Add;
+﻿using ECoffee.Application.Abstractions.Services;
+using ECoffee.Application.Features.Customers.Commands.Add;
 using ECoffee.Application.Features.Customers.Commands.Delete;
 using ECoffee.Application.Features.Customers.Commands.Update;
 using ECoffee.Application.Features.Customers.DTOs;
@@ -15,10 +16,12 @@ namespace ECoffee.API.Controllers
     public class CustomersController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly ITokenHandler _tokenHandler;
 
-        public CustomersController(IMediator mediator)
+        public CustomersController(IMediator mediator, ITokenHandler tokenHandler)
         {
             _mediator = mediator;
+            _tokenHandler = tokenHandler;
         }
 
         [HttpPost]
@@ -51,6 +54,12 @@ namespace ECoffee.API.Controllers
         {
             IDataResult<GetAllCustomerQueryResponse> result = await _mediator.Send(getAllCustomerQueryRequest);
             return Ok(result);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetToken(string email)
+        {
+            return Ok(_tokenHandler.CreateAccessToken(email));
         }
     }
 }

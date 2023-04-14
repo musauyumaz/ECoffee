@@ -8,9 +8,10 @@ namespace ECoffee.Persistence.EntitiesMapping
     {
         public void Configure(EntityTypeBuilder<Customer> builder)
         {
-            builder.Property(c=>c.Name).HasMaxLength(25);
-            builder.Property(c=>c.Surname).HasMaxLength(25);
-            builder.Property(c=>c.Email).HasMaxLength(100);
+            builder.Property(c => c.Name).HasMaxLength(25);
+            builder.Property(c => c.Surname).HasMaxLength(25);
+            builder.Property(c => c.Email).HasMaxLength(100);
+            builder.Property(c => c.Password).HasMaxLength(500);
         }
 
     }
