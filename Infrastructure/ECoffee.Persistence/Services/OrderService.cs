@@ -48,8 +48,9 @@ namespace ECoffee.Persistence.Services
         public async Task<OrderDTO> UpdateAsync(UpdateOrderDTO updateOrderDTO)
         {
             Order order = OrderConverter.UpdateOrderDTOToOrder(updateOrderDTO);
-            order.Customer = CustomerConverter.GetByIdCustomerDTOToCustomer(await _customerService.GetByIdAsync((await _orderQueryRepository.GetByIdAsync(updateOrderDTO.Id)).CustomerId));
+            //order.Customer = CustomerConverter.GetByIdCustomerDTOToCustomer(await _customerService.GetByIdAsync((await _orderQueryRepository.GetByIdAsync(updateOrderDTO.Id)).CustomerId));
             order.Products = await _productService.GetAllProductsByIds(updateOrderDTO.ProductId);
+            _orderCommandRepository.Update(order);
             await _orderCommandRepository.SaveAsync();
             return OrderConverter.OrderToOrderDTO(order);
         }

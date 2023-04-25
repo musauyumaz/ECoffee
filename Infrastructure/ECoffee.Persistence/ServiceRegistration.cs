@@ -19,7 +19,11 @@ namespace ECoffee.Persistence
     {
         public static void AddPersistenceServices(this IServiceCollection services)
         {
-            services.AddDbContext<ECoffeeDbContext>(options => options.UseSqlServer(Configuration.ConnectionString));
+            services.AddDbContext<ECoffeeDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.ConnectionString);
+                options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+            });
 
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<ICustomerService, CustomerService>();
@@ -31,8 +35,8 @@ namespace ECoffee.Persistence
             services.AddScoped<ICategoryQueryRepository, CategoryQueryRepository>();
             services.AddScoped<IProductCommandRepository, ProductCommandRepository>();
             services.AddScoped<IProductQueryRepository, ProductQueryRepository>();
-            services.AddScoped<ICustomerCommandRepository,CustomerCommandRepository>();
-            services.AddScoped<ICustomerQueryRepository,CustomerQueryRepository>();
+            services.AddScoped<ICustomerCommandRepository, CustomerCommandRepository>();
+            services.AddScoped<ICustomerQueryRepository, CustomerQueryRepository>();
             services.AddScoped<IOrderCommandRepository, OrderCommandRepository>();
             services.AddScoped<IOrderQueryRepository, OrderQueryRepository>();
 
