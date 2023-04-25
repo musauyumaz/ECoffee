@@ -13,3 +13,5 @@ namespace ECoffee.Domain.Entities
         public ICollection<Product> Products { get; set; }
     }
 }
+
+
