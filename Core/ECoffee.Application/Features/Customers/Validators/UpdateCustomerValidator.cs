@@ -17,7 +17,7 @@ namespace ECoffee.Application.Features.Customers.Validators
                     .WithMessage("Lütfen müşteri adını boş geçmeyiniz.")
                 .MaximumLength(30)
                 .MinimumLength(3)
-                    .WithMessage("Lütfen müşteri adını 5 ile 150 karakter arasında giriniz.");
+                    .WithMessage("Lütfen müşteri adını 3 ile 30 karakter arasında giriniz.");
 
             RuleFor(c => c.Surname)
                .NotEmpty()
@@ -25,14 +25,12 @@ namespace ECoffee.Application.Features.Customers.Validators
                    .WithMessage("Lütfen müşteri soyadını boş geçmeyiniz.")
                .MaximumLength(30)
                .MinimumLength(3)
-                   .WithMessage("Lütfen müşteri soyadını 5 ile 150 karakter arasında giriniz.");
+                   .WithMessage("Lütfen müşteri soyadını 3 ile 30 karakter arasında giriniz.");
 
             RuleFor(c => c.Email)
                 .NotEmpty()
                 .NotNull().WithMessage("Email boş geçilemez.")
-                .MinimumLength(15)
-                .MaximumLength(100).WithMessage("Email 15 karakterden küçük veya 100 karakterden büyük olamaz");
-
+                .EmailAddress().WithMessage("Geçerli bir e-posta adresi girin."); ;
         }
     }
 }
