@@ -44,7 +44,10 @@ namespace ECoffee.Persistence.Services
 
         public async Task<CategoryDTO> UpdateAsync(UpdateCategoryDTO updateCategoryDTO)
         {
-            Category category = CategoryConverter.UpdateCategoryDTOToCategory(updateCategoryDTO);
+            Category category =await _categoryQueryRepository.GetByIdAsync(updateCategoryDTO.Id);
+            category.Description = updateCategoryDTO.Description;
+            category.Name=updateCategoryDTO.Name;
+            category.IsActive= updateCategoryDTO.IsActive;
             _categoryCommandRepository.Update(category);
             await _categoryCommandRepository.SaveAsync();
             return CategoryConverter.CategoryToCategoryDTO(category);
