@@ -12,10 +12,7 @@ namespace ECoffee.Application.Features.Products.DTOs
 
         public static Product AddProductDTOToProduct(AddProductDTO addProductDTO)
             => new() { UnitsInStock = addProductDTO.UnitsInStock, Description = addProductDTO.Description, Name = addProductDTO.Name, Price = addProductDTO.Price };
-
-        public static Product UpdateProductDTOToProduct(UpdateProductDTO updateProductDTO)
-            => new() { Id = updateProductDTO.Id, Name = updateProductDTO.Name, Description = updateProductDTO.Description, Price = updateProductDTO.Price, UnitsInStock = updateProductDTO.UnitsInStock, IsActive = updateProductDTO.IsActive };
-
+ 
         public static GetByIdProductDTO ProductToGetByIdProductDTO(Product product)
             => new() { Id = product.Id, Name = product.Name, Description = product.Description, UnitsInStock = product.UnitsInStock, Price = product.Price, CategoryNames = product.Categories.Select(c => c.Name).ToList() };
 
