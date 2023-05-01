@@ -51,3 +51,4 @@ namespace ECoffee.Persistence.Services
     }
 }
 //Fluent Validation
+//ToDo customer.Email 45. satır
