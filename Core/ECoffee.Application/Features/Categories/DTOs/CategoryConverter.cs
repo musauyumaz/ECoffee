@@ -9,11 +9,6 @@ namespace ECoffee.Application.Features.Categories.DTOs
         public static Category AddCategoryDTOToCategory(AddCategoryDTO addCategoryDTO)
             => new() { Name = addCategoryDTO.Name, Description = addCategoryDTO.Description };
 
-
-        public static Category UpdateCategoryDTOToCategory(UpdateCategoryDTO updateCategoryDTO)
-            => new() { Id = updateCategoryDTO.Id, IsActive = updateCategoryDTO.IsActive, Name = updateCategoryDTO.Name, Description = updateCategoryDTO.Description };
-
-
         public static CategoryDTO CategoryToCategoryDTO(Category category)
             => new() { Id = category.Id, Description = category.Description, Name = category.Name };
 
