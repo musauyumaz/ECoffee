@@ -11,7 +11,7 @@ namespace ECoffee.Application.Features.Customers.DTOs
             => new() { Id = customer.Id, Name = customer.Name, Surname = customer.Surname, Email = customer.Email };
 
         public static Customer AddCustomerDTOToCustomer(AddCustomerDTO addCustomerDTO)
-            => new() { Name = addCustomerDTO.Name, Email = addCustomerDTO.Email, Surname = addCustomerDTO.Surname };
+            => new() { Name = addCustomerDTO.Name, Email = addCustomerDTO.Email, Surname = addCustomerDTO.Surname ,Password=addCustomerDTO.Password};
 
         public static GetByIdCustomerDTO CustomerToGetByIdCustomerDTO(Customer customer)
             => new()

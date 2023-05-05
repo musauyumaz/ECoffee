@@ -28,7 +28,10 @@ namespace ECoffee.Application.Features.Customers.Validators
                 .NotNull().WithMessage("Email boş geçilemez.")
                 .MinimumLength(15)
                 .MaximumLength(100).WithMessage("Lütfen müşteri email'ini 15 ile 100 karakter arasında giriniz.");
-
+            RuleFor(c => c.Password).NotEmpty()
+                .NotNull().WithMessage("Password boş geçilemez.")
+                .MinimumLength(8)
+                   .WithMessage("Lütfen müşteri password'ünü 8 karakterden uzun olacak şekilde giriniz.");
 
         }
     }
