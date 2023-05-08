@@ -15,21 +15,20 @@ namespace ECoffee.Application.Features.Products.Validator
 
             RuleFor(p => p.Description)
                 .NotEmpty()
-                .NotNull().WithMessage("Lütfen ürün açıklamasını boş geçmeyiniz.")
+                .NotNull().WithMessage("Lütfen açıklamayı boş geçmeyiniz.")
                 .MinimumLength(10)
-                .MaximumLength(500).WithMessage("Açıklama metnini 10 ile 500 karakter arasında giriniz.");
+                .MaximumLength(500).WithMessage("Açıklama 10 ile 500 karakter arasında olmalıdır");
 
             RuleFor(p => p.Price)
-                .GreaterThan(0).WithMessage("Lütfen ürün fiyatını 0'dan büyük giriniz.");
+                .GreaterThan(0).WithMessage("Ürün fiyatı 0'dan büyük olmalıdır.");
 
             RuleFor(p=>p.UnitsInStock)
-                .GreaterThan(0).WithMessage("Lütfen stok miktarını sıfırdan büyük yapınız.");
+                .GreaterThanOrEqualTo(0).WithMessage("Stok miktarı sıfırdan küçük olamaz.");
 
             RuleForEach(p=>p.CategoryIds)
                 .NotEmpty()
-                .NotNull().WithMessage("Lütfen Id'yi boş geçmeyiniz.")
-                .GreaterThan(0).WithMessage("Lütfen Id sıfırdan büyük olsun.");
-
+                .NotNull().WithMessage("Lütfen Id'yi boş geçmeyiniz")
+                .GreaterThan(0).WithMessage("Lütfen Id sıfırdan büyük olsun");
         }
     }
 }
