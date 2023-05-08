@@ -28,8 +28,6 @@ namespace ECoffee.Application.Features.Orders
             => orders.Select(c => new GetAllOrdersDTO { Id = c.Id, CustomerName = $"{c.Customer.Name} {c.Customer.Surname}", ProductNames = c.Products.Select(p => p.Name).ToList() }).ToList();
         public static AddOrderDTO AddOrderCommandRequestToAddOrderDTO(AddOrderCommandRequest addOrderCommandRequest)
            => new() { CustomerId = addOrderCommandRequest.CustomerId, ProductId = addOrderCommandRequest.ProductIds, Note = addOrderCommandRequest.Note };
-        public static UpdateOrderDTO UpdateOrderCommandRequestToUpdateOrderDTO(UpdateOrderCommandRequest updateOrderCommandRequest)
-            => new() { IsActive = updateOrderCommandRequest.IsActive, ProductId = updateOrderCommandRequest.ProductIds };
 
     }
 }
