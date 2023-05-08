@@ -8,20 +8,20 @@ namespace ECoffee.Application.Features.Orders.Validators
         public AddOrderValidator()
         {
             RuleFor(o => o.Note)
-                .NotEmpty().WithMessage("Boş Geçilemez")
+                .NotEmpty().WithMessage("Lütfen sipariş notunu boş geçmeyiniz")
                 .NotNull()
                 .MinimumLength(10).MaximumLength(150)
-                .WithMessage("Not metni 10 karakter ile 150 karakter arasında olmalıdır");
+                .WithMessage("Lütfen sipariş notunu 10 ile 150 karakter arasında giriniz.");
 
             RuleForEach(o => o.ProductIds)
-                .NotEmpty().WithMessage("Boş Geçilemez")
+                .NotEmpty().WithMessage("Lütfen ürün Id'lerini boş geçmeyiniz.")
                 .NotNull()
-                .GreaterThan(0).WithMessage("ID'ler 0'dan Büyük Olmalıdır");
+                .GreaterThan(0).WithMessage("Lütfen ürün Id'lerini sıfırdan büyük giriniz.");
 
             RuleFor(o=>o.CustomerId)
-                .NotEmpty().WithMessage("Boş Geçilemez")
+                .NotEmpty().WithMessage("Lütfen kullanıcı Id'lerini boş geçmeyiniz.")
                 .NotNull()
-                .GreaterThan(0).WithMessage("ID'ler 0'dan Büyük Olmalıdır");
+                .GreaterThan(0).WithMessage("Lütfen kullanıcı Id'lerini sıfırdan büyük giriniz.");
         }
     }
 }
