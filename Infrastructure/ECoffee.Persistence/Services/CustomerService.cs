@@ -38,10 +38,17 @@ namespace ECoffee.Persistence.Services
 
         public async Task<CustomerDTO> UpdateAsync(UpdateCustomerDTO updateCustomerDTO)
         {
-            Customer customer = CustomerConverter.UpdateCustomerDTOToCustomer(updateCustomerDTO);
+            Customer customer = await _customerQueryRepository.GetByIdAsync(updateCustomerDTO.Id);
+            //Customer updatedCustomer = CustomerConverter.UpdateCustomerDTOToCustomer(updateCustomerDTO, customer);
+            customer.Name = updateCustomerDTO.Name;
+            customer.Surname = updateCustomerDTO.Surname;
+            customer.Email = updateCustomerDTO.Surname;
+            customer.IsActive = updateCustomerDTO.IsActive;
             _customerCommandRepository.Update(customer);
             await _customerCommandRepository.SaveAsync();
             return CustomerConverter.CustomerToCustomerDTO(customer);
         }
     }
 }
+//Fluent Validation
+//ToDo customer.Email 45. satır

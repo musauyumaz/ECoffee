@@ -5,6 +5,7 @@ using ECoffee.Application.Features.Orders;
 using ECoffee.Application.Features.Orders.DTOs;
 using ECoffee.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace ECoffee.Persistence.Services
 {
@@ -47,9 +48,10 @@ namespace ECoffee.Persistence.Services
 
         public async Task<OrderDTO> UpdateAsync(UpdateOrderDTO updateOrderDTO)
         {
-            Order order = OrderConverter.UpdateOrderDTOToOrder(updateOrderDTO);
-            order.Customer = CustomerConverter.GetByIdCustomerDTOToCustomer(await _customerService.GetByIdAsync((await _orderQueryRepository.GetByIdAsync(updateOrderDTO.Id)).CustomerId));
+            Order order = await _orderQueryRepository.GetByIdAsync(updateOrderDTO.Id);
             order.Products = await _productService.GetAllProductsByIds(updateOrderDTO.ProductId);
+            order.IsActive = updateOrderDTO.IsActive;
+            _orderCommandRepository.Update(order);
             await _orderCommandRepository.SaveAsync();
             return OrderConverter.OrderToOrderDTO(order);
         }

@@ -9,6 +9,7 @@ namespace ECoffee.Infrastructure
         public static void AddInfrastructureServices(this IServiceCollection services)
         {
             services.AddScoped<IMailService, MailService>();
+            services.AddScoped<ITokenHandler, TokenHandler>();
         }
     }
 }
