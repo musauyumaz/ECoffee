@@ -11,7 +11,6 @@ namespace ECoffee.Application.Features.Categories.Validators
                 .NotEmpty()
                 .NotNull()
                     .WithMessage("Lütfen kategori id'sini boş geçmeyiniz.")
-                .GreaterThan(0)
                     .WithMessage("Lütfen kategori id'sini 0'dan büyük giriniz.");
         }
     }

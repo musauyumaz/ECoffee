@@ -1,7 +1,10 @@
 using ECoffee.Application;
 using ECoffee.Infrastructure;
 using ECoffee.Persistence;
+using ECoffee.Persistence.Contexts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -16,6 +19,11 @@ namespace ECoffee.API
             // Add services to the container.
 
             builder.Services.AddControllers();
+            builder.Services.AddDbContext<ECoffeeDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("MsSQL"));
+                options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+            });
 
             builder.Services.AddPersistenceServices();
             builder.Services.AddApplicationServices();

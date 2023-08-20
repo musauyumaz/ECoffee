@@ -37,7 +37,7 @@ namespace ECoffee.Application.Features.Products.Validator
             RuleForEach(p => p.CategoryIds)
                 .NotEmpty()
                 .NotNull().WithMessage("Lütfen Id'yi boş geçmeyiniz.")
-                .GreaterThanOrEqualTo(0).WithMessage("Lütfen Id'yi değiştiriniz ve sıfırdan büyük yapınız.");
+                .WithMessage("Lütfen Id'yi değiştiriniz ve sıfırdan büyük yapınız.");
         }
     }
 }
