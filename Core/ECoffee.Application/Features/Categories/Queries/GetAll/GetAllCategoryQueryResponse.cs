@@ -11,3 +11,4 @@ namespace ECoffee.Application.Features.Categories.Queries.GetAll
         public int TotalCategoryCount { get; set; }
     }
 }
+

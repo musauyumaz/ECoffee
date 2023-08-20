@@ -17,8 +17,8 @@ namespace ECoffee.Application.Features.Orders.Commands.Update
 
         public async Task<IDataResult<OrderDTO>> Handle(UpdateOrderCommandRequest request, CancellationToken cancellationToken)
         {
-            OrderDTO orderDTO = await _orderService.UpdateAsync(OrderConverter.UpdateOrderCommandRequestToUpdateOrderDTO(request));
-            return new SuccessDataResult<OrderDTO>(" Sipariş Güncellendi", orderDTO);
+            //OrderDTO orderDTO = await _orderService.UpdateAsync(OrderConverter.UpdateOrderCommandRequestToUpdateOrderDTO(request));
+            return new SuccessDataResult<OrderDTO>(" Sipariş Güncellendi");
         }
     }
 }

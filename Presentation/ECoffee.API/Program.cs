@@ -25,6 +25,9 @@ namespace ECoffee.API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+
+            builder.Services.AddCors(options => options.AddDefaultPolicy(policy=> policy.WithOrigins("https://localhost:7070", "http://localhost:5500").AllowAnyHeader().AllowAnyMethod().AllowCredentials()));
+
             builder.Services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -53,7 +56,7 @@ namespace ECoffee.API
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            app.UseCors();
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
