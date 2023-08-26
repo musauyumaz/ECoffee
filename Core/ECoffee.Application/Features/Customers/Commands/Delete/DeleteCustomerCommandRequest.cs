@@ -12,7 +12,7 @@ namespace ECoffee.Application.Features.Customers.Commands.Delete
 {
     public class DeleteCustomerCommandRequest:IRequest<IDataResult<CustomerDTO>>
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
     }
 }
