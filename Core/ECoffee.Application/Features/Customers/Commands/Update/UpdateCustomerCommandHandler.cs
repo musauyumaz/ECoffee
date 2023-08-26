@@ -16,8 +16,8 @@ namespace ECoffee.Application.Features.Customers.Commands.Update
 
         public async Task<IDataResult<CustomerDTO>> Handle(UpdateCustomerCommandRequest request, CancellationToken cancellationToken)
         {
-            CustomerDTO customerDTO = await _customerService.UpdateAsync(CustomerConverter.UpdateCustomerCommandRequestToUpdateCustomerDTO(request));
-            return new SuccessDataResult<CustomerDTO>("Kullanici Güncellendi",customerDTO);
+            CustomerDTO customerDTO = await _customerService.UpdateAsync(new() { Id = request.Id.ToString(), Name = request.Name, Surname = request.Surname, Email = request.Email, IsActive = request.IsActive });
+            return new SuccessDataResult<CustomerDTO>("Kullanici Güncellendi", customerDTO);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace ECoffee.Application.Features.Customers.Queries.GetById
 {
     public class GetByIdCustomerQueryRequest:IRequest<IDataResult<GetByIdCustomerDTO>>
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
     }
 
 }

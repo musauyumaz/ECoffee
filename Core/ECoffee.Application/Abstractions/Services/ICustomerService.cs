@@ -11,9 +11,9 @@ namespace ECoffee.Application.Abstractions.Services
     public interface ICustomerService
     {
         Task<(List<GetAllCustomersDTO> customers,int totalCount)> GetAllAsync(int page,int size);
-        Task<GetByIdCustomerDTO> GetByIdAsync(int id);
+        Task<GetByIdCustomerDTO> GetByIdAsync(string id);
         Task<CustomerDTO> AddAsync(AddCustomerDTO addCustomerDTO);
         Task<CustomerDTO> UpdateAsync(UpdateCustomerDTO updateCustomerDTO);
-        Task<CustomerDTO> DeleteAsync(int id);
+        Task<CustomerDTO> DeleteAsync(string id);
     }
 }
