@@ -18,13 +18,10 @@ namespace ECoffee.Application.Features.Customers.Commands.Add
 
         public async Task<IDataResult<CustomerDTO>> Handle(AddCustomerCommandRequest request, CancellationToken cancellationToken)
         {
-            CustomerDTO customerDTO = await _customerService.AddAsync(CustomerConverter.AddCustomerCommandRequestToAddCustomerDTO(request));
+            CustomerDTO customerDTO = await _customerService.AddAsync(new() { Name = request.Name, Surname = request.Surname, Email = request.Email, Password = request.Password });
             await _mailService.WelcomeUserMailAsync(customerDTO.Email, customerDTO.FullName);
             return new SuccessDataResult<CustomerDTO>("Müşteri Eklendi", customerDTO);
         }
 
     }
 }
-//Validation
-//Business Rule
-//

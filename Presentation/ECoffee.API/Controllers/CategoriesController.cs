@@ -6,6 +6,7 @@ using ECoffee.Application.Features.Categories.Queries.GetAll;
 using ECoffee.Application.Features.Categories.Queries.GetById;
 using ECoffee.Application.Utilities.Results;
 using MediatR;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECoffee.API.Controllers
@@ -16,7 +17,7 @@ namespace ECoffee.API.Controllers
     {
         private readonly IMediator _mediator;
 
-        public CategoriesController(IMediator mediator)
+        public CategoriesController(IMediator mediator, IDataProtectionProvider dataProtectionProvider)
         {
             _mediator = mediator;
         }

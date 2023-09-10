@@ -16,7 +16,7 @@ namespace ECoffee.Application.Features.Categories.Commands.Update
 
         public async Task<IDataResult<CategoryDTO>> Handle(UpdateCategoryCommandRequest request, CancellationToken cancellationToken)
         {
-            CategoryDTO categoryDTO = await _categoryService.UpdateAsync(CategoryConverter.UpdateCategoryCommandRequestToUpdateCategoryDTO(request));
+            CategoryDTO categoryDTO = await _categoryService.UpdateAsync(new() { Id = request.Id.ToString(), Name = request.Name, Description = request.Description, IsActive = request.IsActive });
             return new SuccessDataResult<CategoryDTO>(categoryDTO.Name + " Kategori Güncellendi", categoryDTO);
         }
     }

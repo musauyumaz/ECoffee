@@ -6,6 +6,6 @@ namespace ECoffee.Application.Features.Categories.Commands.Delete
 {
     public class DeleteCategoryCommandRequest : IRequest<IDataResult<CategoryDTO>>
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
     }
 }

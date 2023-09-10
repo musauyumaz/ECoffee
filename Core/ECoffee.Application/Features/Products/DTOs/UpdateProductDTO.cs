@@ -7,7 +7,7 @@
         public string Description { get; set; }
         public int UnitsInStock { get; set; }
         public float Price { get; set; }
-        public List<int> CategoryIds { get; set; }
+        public List<string> CategoryIds { get; set; }
         public bool IsActive { get; set; }
     }
 }

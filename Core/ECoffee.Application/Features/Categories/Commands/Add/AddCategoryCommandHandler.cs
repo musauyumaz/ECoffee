@@ -15,7 +15,7 @@ namespace ECoffee.Application.Features.Categories.Commands.Add
 
         public async Task<IDataResult<CategoryDTO>> Handle(AddCategoryCommandRequest request, CancellationToken cancellationToken)
         {
-            CategoryDTO categoryDTO = await _categoryService.AddAsync(CategoryConverter.AddCategoryCommandRequestToAddCategoryDTO(request));
+            CategoryDTO categoryDTO = await _categoryService.AddAsync(new() { Name = request.Name, Description = request.Description });
             var data = new SuccessDataResult<CategoryDTO>(categoryDTO.Name + " Kategori Eklendi", categoryDTO);
             return data;
         }
