@@ -7,8 +7,8 @@ namespace ECoffee.Application.Features.Categories.Validators
     {
         public DeleteCategoryValidator() {
             RuleFor(c => c.Id).NotEmpty()
-                .NotNull().WithMessage("Lütfen kategori id'sini boş geçmeyiniz.")
-                .WithMessage("Lütfen kategori id'sini 0'dan büyük giriniz.");
+                .NotNull().WithMessage("Lütfen kategori id'sini boş geçmeyiniz.");
+                //.WithMessage("Lütfen kategori id'sini 0'dan büyük giriniz."); bunu kaldıralım.
         }
     }
 }
