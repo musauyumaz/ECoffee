@@ -34,27 +34,27 @@ namespace ECoffee.API
             builder.Services.AddSwaggerGen();
 
 
-            builder.Services.AddCors(options => options.AddDefaultPolicy(policy=> policy.WithOrigins("https://localhost:7070", "http://localhost:5500").AllowAnyHeader().AllowAnyMethod().AllowCredentials()));
+            //builder.Services.AddCors(options => options.AddDefaultPolicy(policy=> policy.WithOrigins("https://localhost:7070", "http://localhost:5500").AllowAnyHeader().AllowAnyMethod().AllowCredentials()));
 
-            builder.Services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-                .AddJwtBearer(options =>
-                {
-                    options.TokenValidationParameters = new()
-                    {
-                        ValidateAudience = true,
-                        ValidateIssuer = true,
-                        ValidateIssuerSigningKey = true,
-                        ValidateLifetime = true,
+            //builder.Services.AddAuthentication(options =>
+            //{
+            //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //})
+            //    .AddJwtBearer(options =>
+            //    {
+            //        options.TokenValidationParameters = new()
+            //        {
+            //            ValidateAudience = true,
+            //            ValidateIssuer = true,
+            //            ValidateIssuerSigningKey = true,
+            //            ValidateLifetime = true,
 
-                        ValidAudience = builder.Configuration["JWT:Audience"],
-                        ValidIssuer = builder.Configuration["JWT:Issuer"],
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:SigningKey"])),
-                    };
-                });
+            //            ValidAudience = builder.Configuration["JWT:Audience"],
+            //            ValidIssuer = builder.Configuration["JWT:Issuer"],
+            //            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:SigningKey"])),
+            //        };
+            //    });
 
             var app = builder.Build();
 
@@ -64,10 +64,10 @@ namespace ECoffee.API
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-            app.UseCors();
+            //app.UseCors();
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
 
             app.MapControllers();

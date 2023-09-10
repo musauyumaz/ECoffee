@@ -49,7 +49,7 @@ namespace ECoffee.Persistence.Services
         public async Task<GetByIdCategoryDTO> GetByIdAsync(string id)
         {
             Category category = await _categoryQueryRepository.Table.Include(c => c.Products).FirstOrDefaultAsync(c => c.Id == int.Parse(_dataProtector.Unprotect(id)));
-            return new() { Id = _dataProtector.Protect(category.Id.ToString()), Name = category.Name, Description = category.Description };
+            return new() { Id = _dataProtector.Protect(category.Id.ToString()), Name = category.Name, IsActive = category.IsActive, Description = category.Description, ProductNames = category.Products.Select(p => p.Name).ToList() };
         }
 
         public async Task<CategoryDTO> UpdateAsync(UpdateCategoryDTO updateCategoryDTO)
