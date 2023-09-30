@@ -6,6 +6,6 @@ namespace ECoffee.Application.Features.Orders.Commands.Delete
 {
     public class DeleteOrderCommandRequest:IRequest<IDataResult<OrderDTO>>
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
     }
 }

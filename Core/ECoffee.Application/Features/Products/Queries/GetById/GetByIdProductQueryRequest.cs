@@ -6,6 +6,6 @@ namespace ECoffee.Application.Features.Products.Queries.GetById
 {
     public class GetByIdProductQueryRequest : IRequest<IDataResult<GetByIdProductDTO>>
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
     }
 }
