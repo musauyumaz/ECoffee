@@ -6,6 +6,6 @@ namespace ECoffee.Application.Features.Orders.Queries.GetById
 {
     public class GetByIdOrderQueryRequest : IRequest<IDataResult<GetByIdOrderDTO>>
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
     }
 }

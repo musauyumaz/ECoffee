@@ -16,7 +16,7 @@ namespace ECoffee.Application.Features.Products.Commands.Update
 
         public async Task<IDataResult<ProductDTO>> Handle(UpdateProductCommandRequest request, CancellationToken cancellationToken)
         {
-            ProductDTO productDTO = await _productService.UpdateAsync(ProductConverter.UpdateProductCommandRequestToUpdateProductDTO(request));
+            ProductDTO productDTO = await _productService.UpdateAsync(new UpdateProductDTO() { Id = request.Id, Name = request.Name, Description = request.Description, Price = request.Price, UnitsInStock = request.UnitsInStock, CategoryIds = request.CategoryIds, IsActive = request.IsActive });
             return new SuccessDataResult<ProductDTO>("Ürün Güncellendi",productDTO);
         }
     }
