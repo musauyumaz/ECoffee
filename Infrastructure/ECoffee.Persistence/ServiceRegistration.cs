@@ -11,15 +11,21 @@ using ECoffee.Persistence.Repositories.Orders;
 using ECoffee.Persistence.Repositories.Products;
 using ECoffee.Persistence.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace ECoffee.Persistence
 {
     public static class ServiceRegistration
     {
-        public static void AddPersistenceServices(this IServiceCollection services)
+        public static void AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
-
+            Configuration.Configure(configuration);
+            services.AddDbContext<ECoffeeDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.ConnectionString);
+                options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+            });
 
 
             services.AddScoped<ICategoryService, CategoryService>();
