@@ -3,6 +3,7 @@ using ECoffee.Application.Abstractions.Repositories.Customers;
 using ECoffee.Application.Abstractions.Repositories.Orders;
 using ECoffee.Application.Abstractions.Repositories.Products;
 using ECoffee.Application.Abstractions.Services;
+using ECoffee.Domain.Entities.Identity;
 using ECoffee.Persistence.Configurations;
 using ECoffee.Persistence.Contexts;
 using ECoffee.Persistence.Repositories.Categories;
@@ -26,6 +27,7 @@ namespace ECoffee.Persistence
                 options.UseSqlServer(Configuration.ConnectionString);
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
+            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<ECoffeeDbContext>();
 
 
             services.AddScoped<ICategoryService, CategoryService>();
