@@ -2,25 +2,16 @@
 
 namespace ECoffee.Persistence.Configurations
 {
-    static class Configuration
+    public static class Configuration
     {
-        public static string ConnectionString
-        {
-            get
-            {
-                ConfigurationManager configurationManager = new();
-                try
-                {
-                    configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(),"../../Presentation/ECoffee.Api"));
-                    configurationManager.AddJsonFile("appsettings.json");
-                }
-                catch
-                {
-                    configurationManager.AddJsonFile("appsettings.Production.json");
-                }
-                return configurationManager.GetConnectionString("MsSQL");
+        private static IConfiguration _configuration;
 
-            }
+        public static void Configure(IConfiguration configuration)
+        {
+            _configuration = configuration;
         }
+
+        public static string ConnectionString => _configuration.GetConnectionString("MsSQL");
+
     }
 }

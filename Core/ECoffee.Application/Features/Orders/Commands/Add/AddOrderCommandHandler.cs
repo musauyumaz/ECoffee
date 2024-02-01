@@ -16,7 +16,7 @@ namespace ECoffee.Application.Features.Orders.Commands.Add
 
         public async Task<IDataResult<OrderDTO>> Handle(AddOrderCommandRequest request, CancellationToken cancellationToken)
         {
-            OrderDTO orderDTO = await _orderService.AddAsync(OrderConverter.AddOrderCommandRequestToAddOrderDTO(request));
+            OrderDTO orderDTO = await _orderService.AddAsync(new());
             var data = new SuccessDataResult<OrderDTO>(" Sipariş Alındı", orderDTO);
             return data;
         }

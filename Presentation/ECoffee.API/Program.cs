@@ -19,15 +19,11 @@ namespace ECoffee.API
             // Add services to the container.
 
             builder.Services.AddControllers();
-            builder.Services.AddDbContext<ECoffeeDbContext>(options =>
-            {
-                options.UseSqlServer(builder.Configuration.GetConnectionString("MsSQL"));
-                options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-            });
 
-            builder.Services.AddPersistenceServices();
+
+            builder.Services.AddPersistenceServices(builder.Configuration);
             builder.Services.AddApplicationServices();
-            builder.Services.AddInfrastructureServices();
+            builder.Services.AddInfrastructureServices(builder.Configuration);
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

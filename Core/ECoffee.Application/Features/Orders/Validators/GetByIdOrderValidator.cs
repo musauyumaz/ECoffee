@@ -9,8 +9,7 @@ namespace ECoffee.Application.Features.Orders.Validators
         {
             RuleFor(o => o.Id)
                 .NotEmpty()
-                .NotNull().WithMessage("Lütfen Id'yi boş geçmeyiniz")
-                .GreaterThan(0).WithMessage("Lütfen Id'yi sıfırdan büyük olsun");
+                .NotNull().WithMessage("Lütfen Id'yi boş geçmeyiniz");
         }
     }
 }

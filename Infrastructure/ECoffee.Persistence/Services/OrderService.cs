@@ -32,7 +32,7 @@ namespace ECoffee.Persistence.Services
             Order order = await _orderCommandRepository.AddAsync(new() { CustomerId = addOrderDTO.CustomerId, Note = addOrderDTO.Note }); ;
             GetByIdCustomerDTO getByIdCustomerDTO = await _customerService.GetByIdAsync(_dataProtector.Unprotect(addOrderDTO.CustomerId.ToString()));
             order.Customer = new Customer() { Id = int.Parse(_dataProtector.Unprotect(getByIdCustomerDTO.Id)), Name = getByIdCustomerDTO.Name, Surname = getByIdCustomerDTO.Surname, Email = getByIdCustomerDTO.Email };
-           
+
             order.Products = await _productService.GetAllProductsByIds(addOrderDTO.ProductId);
             await _orderCommandRepository.SaveAsync();
             return new OrderDTO() { Id = _dataProtector.Protect( order.Id.ToString()), CustomerName = $"{order.Customer.Name} {order.Customer.Surname}", ProductNames = order.Products.Select(p => p.Name).ToList() };
@@ -47,7 +47,7 @@ namespace ECoffee.Persistence.Services
         }
 
         public async Task<(List<GetAllOrdersDTO>, int totalCount)> GetAllAsync(int page, int size)
-        { 
+        {
             var orders = await _orderQueryRepository.GetAll().Where(c => c.IsActive == true).Include(c => c.Products).Skip(page * size).Take(size).ToListAsync();
             List<GetAllOrdersDTO> result = orders.Select(o => new GetAllOrdersDTO()
             {
